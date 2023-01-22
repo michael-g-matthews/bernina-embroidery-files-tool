@@ -1,40 +1,55 @@
 #ifndef MGMATTHEWS_MAINWINDOW_H
 #define MGMATTHEWS_MAINWINDOW_H
 
-#include <QWidget>
+#include <QDialog>
+#include <QLabel>
+#include <QComboBox>
+#include <QPushButton>
+#include <QTableWidget>
+#include <QBoxLayout>
+#include <QHeaderView>
 
-class MainWindow : public QWidget {
-    Q_OBJECT
+#include <QFileDialog>
+#include <QDir>
+#include <QFileInfo>
+#include <QShortcut>
+#include <QApplication>
+
+
+
+
+
+class MainWindow : public QDialog {
+    //Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void browseSrcDir(); 
+    void browseDestDir();
 
 
 private:
 
-    // Source label
-    QLabel *src_label;
-    // Source text box (allow drag and drop?)
-    QComboBox *src_cbox;
-    // Source Browse button
-    QPushButton *src_btn;
-    QDir src_dir;
+    QLabel *src_label; // Source label
+    QComboBox *src_cbox; // Source text box (allow drag and drop?)
+    QPushButton *src_btn; // Source Browse button
+    QDir src_dir; // source directory in filesystem
+    QTableWidget* src_files_table; // table showing files in src directory
 
-    // Destination label
-    QLabel *dest_label;
-    // Destination text box (allow drag and drop?)
-    QComboBox *dest_cbox;
-    // Destination Browse button
-    QPushButton *dest_btn;
-    QDir dest_dir;
+   
+    QLabel *dest_label;  // Destination label
+    QComboBox *dest_cbox;  // Destination text box (allow drag and drop?)
+    QPushButton *dest_btn; // Destination Browse button
+    QDir dest_dir; // destination directory in filesystem
 
-    // Fun image of file transfer
-    // Run button
-    QPushButton *run_btn;
+    // One move button or should there be move back and forth so you can select specific patterns. Or possibly a move all, each way?
+    QPushButton *move_btn;
+    QPushButton *copy_btm;
 
-    // Progress bar
+    void browse(const QString &choice, QComboBox *component);
 
 };
 
