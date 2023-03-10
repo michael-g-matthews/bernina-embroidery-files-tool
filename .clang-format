@@ -1,0 +1,19 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+AccessModifierOffset: -4
+IndentWidth: 4
+TabWidth: 4
+PointerAlignment: Left
+ReferenceAlignment: Right
+PackConstructorInitializers: NextLine
+SpaceInEmptyBlock: true
+BraceWrapping:
+  AfterControlStatement: Multiline
+  BeforeCatch:     true
+  BeforeElse:      true
+  BeforeWhile:     true
+
+
+
+

@@ -55,8 +55,13 @@ MainWindow::MainWindow(QWidget *parent) : QDialog(parent) {
     action_row->addWidget(move_btn);
     action_row->addStretch();
 
+    // Bind functionality to components
     connect(new QShortcut(QKeySequence::Quit, this), &QShortcut::activated, qApp, &QApplication::quit);
     connect(new QShortcut(QKeySequence::Close, this), &QShortcut::activated, qApp, &QApplication::quit);
+
+    connect(src_btn, &QAbstractButton::clicked, this, &MainWindow::browseSrcDir);
+
+    connect(dest_btn, &QAbstractButton::clicked, this, &MainWindow::browseDestDir);
 
 }
 
